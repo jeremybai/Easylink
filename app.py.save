@@ -1,0 +1,4 @@
+#!/usr/bin/env python
+#-*-encoding:utf-8-*-
+
+import osimport jsonimport bottlefrom bottle import runfrom bottle import routefrom bottle import requestfrom bottle import templatefrom bottle import static_filefrom bottle import default_appimport qiniuimport qiniu.confimport qiniu.rsimport qiniu.ioqiniu.conf.ACCESS_KEY = ''qiniu.conf.SECRET_KEY = ''bucket_name = ''base_url = ''DEV_ROOT = os.path.realpath(os.path.dirname(__file__))bottle.TEMPLATE_PATH.append(DEV_ROOT+'/templates/')
