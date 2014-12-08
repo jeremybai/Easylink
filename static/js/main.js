@@ -67,7 +67,8 @@ function handleFiles (files) {
 $('#input').on('change', function (e) {
 	$("div[id=input-progress-bar]").css("width", 0+'%');
 	$('#input-progress-bar').text('0%');
-	document.getElementById("progresstext").style.visibility="hidden";//隐藏
+	$('#progresstext').text('外链地址');
+	//document.getElementById("progresstext").style.visibility="hidden";//隐藏
 	sleep(300);
 	// HTML5 File API
 	//e.target.files是由用户选择的文件，FileList对象；e.dataTransfer.files用于拖拽文件上传
