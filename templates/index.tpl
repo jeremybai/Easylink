@@ -32,7 +32,7 @@
       aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
       </button> 
-      <a class="navbar-brand" href="#">EasyLink</a></div>
+      <a class="navbar-brand" href="/">EasyLink</a></div>
       <!--/.navbar-collapse -->
     </div>
   </nav>
