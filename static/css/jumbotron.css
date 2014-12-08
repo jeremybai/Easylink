@@ -2,8 +2,13 @@
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+  font-family: 微软雅黑;
 }
 
 .progress-bar-black {
   background-color: #000000;
+}
+
+head {
+  font-family: 微软雅黑;
 }

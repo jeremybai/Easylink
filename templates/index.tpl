@@ -17,6 +17,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="static/js/ie-emulation-modes-warning.js"></script>
+	<script src="static/js/holder.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -39,40 +40,50 @@
   <div class="jumbotron">
     <div class="container">
       <div class="col-md-8 col-md-offset-3">
-        <h1>EasyLink</h1>
+        <h1>EasyLink<small></small></h1>
         <br />
-        <p>点击选择文件按钮，选择本地文件即可生成图片外链</p>
+        <p>点击选择文件按钮，选择本地图片即可生成图片外链</p>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
-	  
-        <div class="col-md-6 col-md-offset-3">
-          <div class="progress">
-            <div id="input-progress-bar" class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-            aria-valuemax="100" style="width: 0%;"></div>
+	
+		<div class="col-md-4 col-md-offset-4">
+			<img id="thumbnail" src="holder.js/160x160" alt="..." style="width: 160px; height: 160px; clear: both; display: block; margin:auto;" class="img-thumbnail" >
+		</div>
+		
+	</div>
+	
+		<br />
+		
+    <div class="row">
+	
+        <div class="col-md-5 col-md-offset-3">
+          <div id="input-progress" class="progress">
+            <div id="input-progress-bar" class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%
+			</div>
           </div>
-		  
-          <div class="col-md-4 col-md-offset-9">
+		</div>
+		
+		<div class="col-md-3" >
 			<input id="input" multiple="multiple" type="file" accept="image/*" class="filestyle" data-input="false" data-badge="false" data-buttonText="选择文件" > 
-			<strong id="process"></strong>
-		  </div>
-        </div>
+		</div>		     
 		
     </div>	
-	<br />
-	<div class="row">	
 	
+		  
+	<br />
+	
+	<div class="row">	
         <div class="col-md-6 col-md-offset-3">
-		  <div class="col-md-2">
-			  <label class="btn" disabled="disabled">外链地址</label>  
+		  <div class="col-md-3" style="text-align:center;">
+			  <h4 id="progresstext">外链地址</h4>  
 		  </div>
-          <div class="col-md-10">
+          <div class="col-md-9">
             <input type="text" class="form-control" id="linkaddress" placeholder="" />
           </div>
-		  </div>
-
+		</div>
     </div>
     <hr />
     <footer>

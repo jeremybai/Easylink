@@ -5,12 +5,12 @@ function sleep(sleepTime) {
 function setProgress (p) {
     if (p < 0) {
 	    $("div[id=input-progress-bar]").css("width", p + "%");
-        $('#process').text('');
+        $('#input-progress-bar').text('外链地址');
     }
-    else {
+    else {  
         p = p + '%';
 	    $("div[id=input-progress-bar]").css("width", p);
-        $('#process').text('外链已生成'+p);
+        $('#input-progress-bar').text(p);
     }
 }
 function sendFile (f) {
@@ -21,14 +21,18 @@ function sendFile (f) {
             if (xhrobj.upload) {
                 xhrobj.upload.addEventListener('progress', function (e) {
                     var percent = 0;
+					//event.position 已经上传的字节数
                     var position = e.loaded || e.position;
+					//event.total 上传的总字节数
                     var total = e.total;
                     if (e.lengthComputable) {
                         percent = Math.ceil(position / total * 100);
                     }
+					document.getElementById("progresstext").style.visibility="visible";//隐藏
                     setProgress(percent);
-                }, false);
+                }, false);//设置为false，则冒泡执行（从内向外），否则为捕捉，从外向内
             }
+			//返回自己创建的XMLHttpRequest对象
             return xhrobj;
         },
         url: uploadUrl,
@@ -39,7 +43,9 @@ function sendFile (f) {
         data: f,
         success: function (e) {
             msg = JSON.parse(e);
-            document.getElementById( 'linkaddress' ).value = 'http://raspberry-pi.qiniudn.com/'+msg.key;
+			$('#progresstext').text('外链已生成');
+			document.getElementById( 'thumbnail' ).src = msg.baseurl+msg.key;
+            document.getElementById( 'linkaddress' ).value = msg.baseurl+msg.key;
 			//window.location.href = '/success/'+msg.key;
         },
         error: function (e) {
@@ -47,10 +53,11 @@ function sendFile (f) {
     });
 }
 function handleFiles (files) {
+	//FileList对象只有一个属性：length
     for (var i = 0; i < files.length; i++) {
         var fd = new FormData();
         if (files[i].type.match('image.*')) {
-            fd.append('file', files[i])
+            fd.append('file'+ i, files[i])
             sendFile(fd);
             break;
         }
@@ -59,7 +66,11 @@ function handleFiles (files) {
 
 $('#input').on('change', function (e) {
 	$("div[id=input-progress-bar]").css("width", 0+'%');
+	$('#input-progress-bar').text('0%');
+	document.getElementById("progresstext").style.visibility="hidden";//隐藏
 	sleep(300);
+	// HTML5 File API
+	//e.target.files是由用户选择的文件，FileList对象；e.dataTransfer.files用于拖拽文件上传
 	var fs = e.target.files || e.dataTransfer && e.dataTransfer.files;
     handleFiles(fs);
 })

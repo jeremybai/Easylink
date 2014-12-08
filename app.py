@@ -39,6 +39,9 @@ def upload():
     extra = qiniu.io.PutExtra()
     extra.mime_type = f.type
     ret, err = qiniu.io.put(uptoken, f.filename, f.file.read(), extra)
+    #print ret
+    #print err
+    ret['baseurl'] = base_url
     return json.dumps(ret)
 
 @route('/static/css/<path:path>')
