@@ -1,3 +1,30 @@
+//ZeroClipboard.config( { swfPath: 'http://raspberry-pi.qiniudn.com/ZeroClipboard.swf' } );
+//ZeroClipboard.swf和ZeroClipboard.min.js不在同一目录下时需要设置路径
+
+var client = new ZeroClipboard( document.getElementById("copytoboard") );
+
+client.on( 'ready', function(event) {
+	// console.log( 'movie is loaded' );
+
+	client.on( 'copy', function(event) {
+	  event.clipboardData.setData('text/plain', document.getElementById( 'linkaddress' ).value);
+	} );
+
+	client.on( 'aftercopy', function(event) {
+	  console.log('Copied text to clipboard: ' + event.data['text/plain']);
+	} );
+  } );
+
+client.on( 'error', function(event) {
+	// console.log( 'ZeroClipboard error of type "' + event.name + '": ' + event.message );
+	ZeroClipboard.destroy();
+  } );
+
+client.on( 'error', function(event) {
+	// console.log( 'ZeroClipboard error of type "' + event.name + '": ' + event.message );
+	ZeroClipboard.destroy();
+} );
+
 function sleep(sleepTime) {
        for(var start = Date.now(); Date.now() - start <= sleepTime; ) { } 
 }
@@ -75,4 +102,5 @@ $('#input').on('change', function (e) {
 	var fs = e.target.files || e.dataTransfer && e.dataTransfer.files;
     handleFiles(fs);
 })
+
 

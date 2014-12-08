@@ -17,7 +17,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="static/js/ie-emulation-modes-warning.js"></script>
-	<script src="static/js/holder.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -67,7 +67,7 @@
 		</div>
 		
 		<div class="col-md-3" >
-			<input id="input" multiple="multiple" type="file" accept="image/*" class="filestyle" data-input="false" data-badge="false" data-buttonText="选择文件" > 
+			<input id="input" multiple="multiple" type="file" accept="image/*" class="filestyle" data-input="false" data-badge="false" title="点击选择文件" data-buttonText="选择文件" > 
 		</div>		     
 		
     </div>	
@@ -76,13 +76,17 @@
 	<br />
 	
 	<div class="row">	
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-5 col-md-offset-3">
 		  <div class="col-md-3" style="text-align:center;">
 			  <h4 id="progresstext">外链地址</h4>  
 		  </div>
           <div class="col-md-9">
             <input type="text" class="form-control" id="linkaddress" placeholder="" />
           </div>
+		</div>
+		<!-- http://v3.bootcss.com/components/ -->
+		<div class="col-md-2" style="">
+		  <button id="copytoboard" class="btn btn-large btn-default" type="button" data-clipboard-text="" title="点击复制外链地址" ><span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp;复&nbsp;&nbsp;&nbsp;制&nbsp;&nbsp;</button>
 		</div>
     </div>
     <hr />
@@ -94,11 +98,13 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-  <script src="static/js/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
+  <script type="text/javascript" src="static/js/holder.js"></script>
+  <script type="text/javascript" src="static/js/ZeroClipboard.min.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap.min.js"></script> 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   
-  <script src="static/js/ie10-viewport-bug-workaround.js"></script> 
+  <script type="text/javascript" src="static/js/ie10-viewport-bug-workaround.js"></script> 
   <script type="text/javascript" src="static/js/jquery.js"></script> 
   <script type="text/javascript" src="static/js/main.js"></script> 
   <script type="text/javascript" src="static/js/bootstrap-filestyle.min.js"></script></body>
